@@ -1,0 +1,183 @@
+.navbar-area {
+    .dropdown-toggle {
+        @apply relative;
+        @apply mr-[15px];
+
+        &::after {
+            @apply top-1/2;
+            @apply absolute;
+            content: "\ea4e";
+            @apply leading-none;
+            @apply -right-[18px];
+            @apply -translate-y-2/4;
+            @apply font-navbar;
+        }
+    }
+    ul {
+        li {
+            ul {
+                li {
+                    .dropdown-toggle {
+                        @apply mr-0;
+                        @apply pr-[15px];
+
+                        &::after {
+                            @apply -right-[3px];
+                            @apply mt-0;
+                        }
+                    }
+                    &:hover {
+                        ul {
+                            @apply opacity-100;
+                            @apply visible;
+
+                            li {
+                                ul {
+                                    @apply opacity-0;
+                                    @apply invisible;
+                                }
+                                &:hover {
+                                    ul {
+                                        @apply opacity-100;
+                                        @apply visible;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    a.active {
+        @apply bg-cta;
+    }
+    &.isSticky {
+        @apply sticky;
+        @apply top-0;
+        @apply left-0;
+        @apply z-[999];
+        @apply right-0;
+        @apply bg-black;
+        box-shadow: 0 2px 28px 0 rgba(245, 40, 145, 0.8);
+        animation: 500ms ease-in-out 0s normal none 1 running fadeInDown;
+    }
+}
+
+.hidden {
+    &.block {
+        display: block !important;
+    }
+    &.inline-block {
+        display: inline-block !important;
+    }
+}
+
+@keyframes fadeInDown {
+    0% {
+        opacity: 0;
+        transform: translate3d(0,-100%,0)
+    } to {
+        opacity: 1;
+        transform: translateZ(0)
+    }
+}
+
+/* Max width 767px */
+@media only screen and (max-width: 767px) {
+
+    .navbar-area {
+        .navbar {
+            @apply block;
+
+            .navbar-collapse {
+                @apply hidden;
+                @apply py-[10px];
+                @apply px-[20px];
+                @apply mt-[15px];
+                max-height: 52vh;
+                flex-direction: unset;
+                overflow: {
+                    y: scroll;
+                    x: hidden;
+                };
+                @apply border;
+                @apply border-black;
+                
+                &::-webkit-scrollbar {
+                    width: 5px;
+                } 
+                &::-webkit-scrollbar-track {
+                    @apply bg-white;
+                    border-radius: 30px;
+                } 
+                &::-webkit-scrollbar-thumb {
+                    @apply bg-white;
+                    border-radius: 30px;
+                } 
+                &::-webkit-scrollbar-thumb:hover {
+                    @apply bg-white;
+                }
+
+                .navbar-nav {
+                    li {
+                        a {
+                            @apply block;
+
+                            &::before {
+                                @apply hidden;
+                            }
+                        }
+                        ul {
+                            @apply top-0;
+                            @apply w-full;
+                            @apply left-0;
+                            @apply visible;
+                            @apply right-0;
+                            @apply relative;
+                            @apply mt-[10px];
+                            @apply py-[10px];
+                            @apply shadow-none;
+                            @apply opacity-100;
+                            @apply bg-black;
+                            @apply overflow-hidden;
+                            
+                            li {
+                                a {
+                                    @apply text-[14px];
+                                }
+                                ul {
+                                    @apply opacity-100;
+                                    @apply bg-white;
+                                    @apply visible;
+
+                                    li {
+                                        ul {
+                                            @apply bg-white;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            &.active {
+                .navbar-toggler {
+                    .burger-menu {
+                        i {
+                            &::before {
+                                content: "\eb98";
+                            }
+                        }
+                    }
+                }
+                .navbar-collapse {
+                    @apply block;
+                }
+            }
+        }
+    }
+}
+
+    
