@@ -61,8 +61,8 @@ Our robust and modern tech stack ensures efficient, scalable, and secure solutio
 To get started with the Praxisphere project, follow these steps:
 
 1. Clone the repository:
-git clone https://github.com/your-username/praxisphere.git
-
+git clone [https://github.com/your-username/praxisphere.git
+](https://github.com/Praxisphere/praxis-ux.git)
 2. Install dependencies:
 cd praxisphere
 npm install
